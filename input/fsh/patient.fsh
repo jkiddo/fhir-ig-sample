@@ -86,3 +86,24 @@ Description: "This profile is intended to be used to represent the Binary."
 * ^status = #active
 * ^experimental = false
 * securityContext 1..1
+
+
+Instance: KaenelEmergencyNormalAccess
+InstanceOf: PpqmConsentTemplate202
+Usage: #example
+Title: "Consent policy (202) for Kaenel"
+* meta.profile = "http://fhir.ch/ig/ch-epr-fhir/StructureDefinition/PpqmConsentTemplate202"
+* identifier[policySetId].type = http://fhir.ch/ig/ch-epr-fhir/CodeSystem/PpqmConsentIdentifierType#policySetId
+* identifier[policySetId].value = "urn:uuid:c8e1bca5-6f30-4824-8241-ef1e7a59309d"
+* identifier[templateId].type   = http://fhir.ch/ig/ch-epr-fhir/CodeSystem/PpqmConsentIdentifierType#templateId
+* identifier[templateId].value  = "202"
+* status = #active
+* scope  = http://terminology.hl7.org/CodeSystem/consentscope#patient-privacy
+* category = http://terminology.hl7.org/CodeSystem/v3-ActCode#INFA
+* patient.identifier.system = "urn:oid:2.16.756.5.30.1.127.3.10.3"
+* patient.identifier.value  = "761337614042587767"
+* patient = Reference(PatientExample) //removed until https://github.com/ehealthsuisse/ch-epr-fhir/issues/251 is sorted out
+* policyRule = urn:ietf:rfc:3986#urn:e-health-suisse:2015:policies:access-level:normal
+* provision.actor.role = urn:oid:2.16.756.5.30.1.127.3.10.6#HCP
+* provision.actor.reference.display = "all"
+* provision.purpose = urn:oid:2.16.756.5.30.1.127.3.10.5#EMER
